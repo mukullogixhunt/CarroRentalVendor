@@ -8,10 +8,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -142,12 +144,18 @@ public class WalletFragment extends BaseFragment implements RecommendedClickList
         addMoneyWalletDialogBinding.btnAddMoney.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.cancel();
-                amount=addMoneyWalletDialogBinding.etAmount.getText().toString();
-                Intent intent=new Intent(getContext(), AddWalletAmountActivity.class);
-                intent.putExtra(Constant.BundleExtras.WALLET_AMOUNT,amount);
-                startActivity(intent);
-
+                int walletAmt=Integer.parseInt(binding.tvAmount.getText().toString().replace("Rs. ",""));
+                if (addMoneyWalletDialogBinding.etAmount.getText().toString().isEmpty()) {
+                    showAlert("Please enter amount");
+                }else if(walletAmt==0){
+                    showAlert("Minimum ₹500 required for first-time wallet top-up");
+                }else {
+                    dialog.cancel();
+                    amount=addMoneyWalletDialogBinding.etAmount.getText().toString();
+                    Intent intent = new Intent(getContext(), AddWalletAmountActivity.class);
+                    intent.putExtra(Constant.BundleExtras.WALLET_AMOUNT, amount);
+                    startActivity(intent);
+                }
             }
         });
     }
