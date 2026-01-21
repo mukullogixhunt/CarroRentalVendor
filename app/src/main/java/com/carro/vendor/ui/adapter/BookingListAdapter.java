@@ -72,7 +72,12 @@ public class BookingListAdapter extends RecyclerView.Adapter<BookingListAdapter.
             holder.binding.tvCarType.setText(item.getmCtypeTitle()+" \n("+item.getmCtypeNumber()+")");
         }
 
-        holder.binding.tvAmount.setText(new IndianCurrencyFormat().inCuFormatText(item.getmBkingTotal()));
+        double totalAmount = Double.parseDouble(item.getmBkingTotal());
+        double eightyPercentAmount = totalAmount * 0.8;
+
+        holder.binding.tvAmount.setText(
+                new IndianCurrencyFormat().inCuFormatText(eightyPercentAmount+"")
+        );
 
         String pick_date;
         String pick_time;
