@@ -8,42 +8,42 @@
     android:orientation="vertical"
     tools:context=".ui.fragment.bottom.HomeFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:orientation="horizontal">-->
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:minLines="2"
-            android:paddingStart="@dimen/_13sdp"
-            android:text=""
-            android:textSize="@dimen/_15ssp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+<!--        <TextView-->
+<!--            android:id="@+id/textView"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:ellipsize="end"-->
+<!--            android:maxLines="2"-->
+<!--            android:minLines="2"-->
+<!--            android:paddingStart="@dimen/_13sdp"-->
+<!--            android:text=""-->
+<!--            android:textSize="@dimen/_15ssp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/imageView"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/imageView2" />-->
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_marginTop="@dimen/_2sdp"
-            android:rotation="0"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_car"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_drawer" />
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView"-->
+<!--            android:layout_width="@dimen/_110sdp"-->
+<!--            android:layout_height="@dimen/_100sdp"-->
+<!--            android:layout_marginTop="@dimen/_2sdp"-->
+<!--            android:rotation="0"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/img_car"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/iv_drawer" />-->
 
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
