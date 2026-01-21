@@ -192,6 +192,7 @@ public class ProfileFragment extends BaseFragment {
         binding.tvAadharNumber.setText(userDetailModel.get(0).getmVendorAdharNo());
         binding.tvPanNumber.setText(userDetailModel.get(0).getmVendorPanNo());
         binding.tvAltPhoneNumber.setText(userDetailModel.get(0).getmVendorAltMobile());
+        binding.tvBranch.setText(userDetailModel.get(0).getmBranchTitle());
 //        binding.tvPincode.setText(userDetailModel.get(0).getmVendorPincode());
 //        binding.tvState.setText(userDetailModel.get(0).getmVendorState());
 //        binding.tvCity.setText(userDetailModel.get(0).getmVendorCity());
