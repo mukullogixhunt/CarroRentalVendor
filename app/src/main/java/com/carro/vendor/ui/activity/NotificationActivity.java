@@ -16,6 +16,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.carro.vendor.api.response.MarkAllReadResponse;
 import com.google.gson.Gson;
 import com.carro.vendor.R;
 import com.carro.vendor.api.ApiClient;
@@ -79,6 +80,30 @@ public class NotificationActivity extends BaseActivity {
 
         setupRecyclerView();
         getUserNotificationApi();
+        binding. tvMarksRead.setOnClickListener(v -> {
+            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+            Call<MarkAllReadResponse> call = apiService.markAllNotificationsRead(userId);
+
+            call.enqueue(new Callback<MarkAllReadResponse>() {
+                @Override
+                public void onResponse(Call<MarkAllReadResponse> call, Response<MarkAllReadResponse> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        MarkAllReadResponse res = response.body();
+                        if (res.getResponse().equalsIgnoreCase("success")) {
+                            Toast.makeText(NotificationActivity.this, res.getMessage(), Toast.LENGTH_SHORT).show();
+                            getUserNotificationApi();
+                        } else {
+                            Toast.makeText(NotificationActivity.this, "Failed: " + res.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MarkAllReadResponse> call, Throwable t) {
+                    Toast.makeText(NotificationActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
     }
 
     private void setupRecyclerView() {
@@ -176,201 +201,3 @@ public class NotificationActivity extends BaseActivity {
         }
     }
 }
-
-
-
-/*
-public class NotificationActivity extends BaseActivity implements NotificationClickListener {
-
-    ActivityNotificationBinding binding;
-
-    NotificationAdapter notificationAdapter;
-
-    List<NotificationModel> notificationModelList = new ArrayList<>();
-    String userId;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ActivityNotificationBinding.inflate(getLayoutInflater());
-        EdgeToEdge.enable(this);
-        setContentView(binding.getRoot());
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });        getNotificationPreference();
-
-    }
-
-
-    private void getNotificationPreference() {
-        userId = PreferenceUtils.getString(Constant.PreferenceConstant.USER_ID, NotificationActivity.this);
-
-        initialization();
-    }
-
-    private void initialization() {
-
-        getUserNotificationApi();
-
-        binding.ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getOnBackPressedDispatcher().onBackPressed();
-            }
-        });
-
-        binding.tvClearAll.setOnClickListener(v -> showClearConfirmationDialog());
-
-
-
-    }
-
-
-
-    private void showClearConfirmationDialog() {
-        new AlertDialog.Builder(this)
-                .setTitle("Clear Notifications")
-                .setMessage("Are you sure you want to delete all notifications? This action cannot be undone.")
-                .setPositiveButton("Clear All", (dialog, which) -> deleteNotificationsApi())
-                .setNegativeButton("Cancel", null)
-                .show();
-    }
-
-    private void deleteNotificationsApi() {
-        showLoader();
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<BaseResponse> call = apiInterface.deleteNotification(userId);
-
-        call.enqueue(new Callback<BaseResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<BaseResponse> call, @NonNull Response<BaseResponse> response) {
-                hideLoader();
-                if (response.isSuccessful() && response.body() != null && response.body().getResult().equalsIgnoreCase(Constant.SUCCESS_RESPONSE)) {
-                    Toast.makeText(NotificationActivity.this, "All notifications cleared", Toast.LENGTH_SHORT).show();
-                    // Clear the list and update the UI
-                    notificationModelList.clear();
-                    notificationAdapter.notifyDataSetChanged();
-                    updateUIState();
-                } else {
-                    showError("Failed to clear notifications. Please try again.");
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<BaseResponse> call, @NonNull Throwable t) {
-                hideLoader();
-                Log.e(TAG, "deleteNotificationsApi failed", t);
-                showError("Something went wrong");
-            }
-        });
-    }
-
-
-    private void getUserNotificationApi() {
-
-        showLoader();
-
-        binding.lvNoData.setVisibility(View.VISIBLE);
-        binding.rvNotification.setVisibility(View.GONE);
-
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<NotificationResponse> call = apiInterface.notification(userId);
-        call.enqueue(new Callback<NotificationResponse>() {
-            @Override
-            public void onResponse(Call<NotificationResponse> call, Response<NotificationResponse> response) {
-                hideLoader();
-                try {
-                    if (String.valueOf(response.code()).equalsIgnoreCase(Constant.SUCCESS_RESPONSE_CODE)) {
-                        if (response.body().getResult().equalsIgnoreCase(Constant.SUCCESS_RESPONSE)) {
-                            binding.lvNoData.setVisibility(View.GONE);
-                            binding.rvNotification.setVisibility(View.VISIBLE);
-
-                            notificationModelList.clear();
-                            notificationModelList.addAll(response.body().getData());
-
-                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(NotificationActivity.this, LinearLayoutManager.VERTICAL, false);
-                            binding.rvNotification.setLayoutManager(linearLayoutManager);
-                            notificationAdapter = new NotificationAdapter(NotificationActivity.this, notificationModelList,NotificationActivity.this);
-                            binding.rvNotification.setAdapter(notificationAdapter);
-
-                            notificationAdapter.notifyDataSetChanged();
-
-                        } else {
-                            hideLoader();
-                            binding.lvNoData.setVisibility(View.VISIBLE);
-                            binding.rvNotification.setVisibility(View.GONE);
-                        }
-                    } else {
-                        hideLoader();
-                        binding.lvNoData.setVisibility(View.VISIBLE);
-                        binding.rvNotification.setVisibility(View.GONE);
-                    }
-                } catch (Exception e) {
-                    hideLoader();
-                    e.printStackTrace();
-                    binding.lvNoData.setVisibility(View.VISIBLE);
-                    binding.rvNotification.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<NotificationResponse> call, Throwable t) {
-                hideLoader();
-                Log.e("Failure", t.toString());
-                binding.lvNoData.setVisibility(View.VISIBLE);
-                binding.rvNotification.setVisibility(View.GONE);
-                showError("Something went wrong");
-            }
-        });
-
-
-    }
-    private void getAcceptNotificationApi(String booking_id) {
-
-        showLoader();
-
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<BaseResponse> call = apiInterface.update_notify_booking(userId,booking_id);
-        call.enqueue(new Callback<BaseResponse>() {
-            @Override
-            public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
-                hideLoader();
-                try {
-                    if (String.valueOf(response.code()).equalsIgnoreCase(Constant.SUCCESS_RESPONSE_CODE)) {
-                        if (response.body().getResult().equalsIgnoreCase(Constant.SUCCESS_RESPONSE)) {
-                            getUserNotificationApi();
-                            showAlert("Data Updated Successfully!");
-
-
-                        } else {
-                            hideLoader();
-
-                        }
-                    } else {
-                        hideLoader();
-                    }
-                } catch (Exception e) {
-                    hideLoader();
-                    e.printStackTrace();
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<BaseResponse> call, Throwable t) {
-                hideLoader();
-                Log.e("Failure", t.toString());
-                showError("Something went wrong");
-            }
-        });
-
-
-    }
-
-    @Override
-    public void onNotifClick(NotificationModel notificationModel) {
-        getAcceptNotificationApi(notificationModel.getmNotifBooking());
-    }
-}*/

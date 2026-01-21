@@ -164,6 +164,7 @@ public class Constant {
         String UPDATE_FCM = "update_fcm";
 
         String DELETE_NOTIFICATION = "delete_notification";
+        String MARK_AS_READ_NOTIFICATION = "notif_mark_as_read";
 
         String ADVERTISE = "advertise";
 

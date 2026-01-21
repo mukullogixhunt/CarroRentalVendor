@@ -10,6 +10,7 @@ import com.carro.vendor.api.response.CityResponse;
 import com.carro.vendor.api.response.DriverListResponse;
 import com.carro.vendor.api.response.DriverOtpResponse;
 import com.carro.vendor.api.response.LoginResponse;
+import com.carro.vendor.api.response.MarkAllReadResponse;
 import com.carro.vendor.api.response.NotificationResponse;
 import com.carro.vendor.api.response.RecommendedResponse;
 import com.carro.vendor.api.response.SliderResponse;
@@ -207,6 +208,12 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST(Constant.EndPoint.DELETE_NOTIFICATION)
     Call<BaseResponse> deleteNotification(
+            @Field(Constant.ApiKey.USER_ID) String user_id
+    );
+
+    @FormUrlEncoded
+    @POST(Constant.EndPoint.MARK_AS_READ_NOTIFICATION) // Add this in your Constant.EndPoint
+    Call<MarkAllReadResponse> markAllNotificationsRead(
             @Field(Constant.ApiKey.USER_ID) String user_id
     );
 
