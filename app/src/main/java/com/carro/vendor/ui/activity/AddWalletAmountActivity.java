@@ -57,7 +57,11 @@ public class AddWalletAmountActivity extends BaseActivity implements PaymentResu
     private void getPreference(){
         String userData = PreferenceUtils.getString(Constant.PreferenceConstant.USER_DATA,AddWalletAmountActivity.this);
         loginModel = new Gson().fromJson(userData, LoginModel.class);
-        amount=getIntent().getStringExtra(Constant.BundleExtras.WALLET_AMOUNT);
+        if(getIntent().getStringExtra(Constant.BundleExtras.WALLET_AMOUNT).isEmpty()){
+            amount="0";
+        }else{
+            amount=getIntent().getStringExtra(Constant.BundleExtras.WALLET_AMOUNT);
+        }
         double rupeeToPaisa = Integer.parseInt(amount) * 100;
         AsyncCaller asyncCaller = new AsyncCaller(rupeeToPaisa);// Money is being added in Paisa....
         asyncCaller.execute();
