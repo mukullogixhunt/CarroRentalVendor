@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary_light7"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="@string/account_holder_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_ac_holder_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/edit_text_shape"
+        android:hint="@string/account_holder_name"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:textSize="@dimen/_13ssp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/bank_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_bank_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/edit_text_shape"
+        android:hint="@string/bank_name"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:textSize="@dimen/_13ssp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/account_number"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_account_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/edit_text_shape"
+        android:hint="@string/account_number"
+        android:inputType="number"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:textSize="@dimen/_13ssp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/ifsc_code"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_ifsc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/edit_text_shape"
+        android:hint="@string/ifsc_code"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:textSize="@dimen/_13ssp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/bank_upi"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_bank_upi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/edit_text_shape"
+        android:hint="@string/bank_upi"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:textSize="@dimen/_13ssp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/phone_pay"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_phone_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/edit_text_shape"
+        android:hint="@string/phone_pay"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:textSize="@dimen/_13ssp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/google_pay"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_google_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/edit_text_shape"
+        android:hint="@string/google_pay"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:textSize="@dimen/_13ssp" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUpdateBank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginVertical="@dimen/_20sdp"
+        android:paddingVertical="@dimen/_7sdp"
+        android:text="@string/update"
+        android:textSize="@dimen/_15ssp"
+        app:cornerRadius="@dimen/_10sdp" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

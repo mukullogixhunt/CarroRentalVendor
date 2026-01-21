@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "830254695501",
+    "project_id": "carrorental-44f7f",
+    "storage_bucket": "carrorental-44f7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830254695501:android:c0df525e7c5fc4b6d7c804",
+        "android_client_info": {
+          "package_name": "com.logixhunt.carrorental"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6nxT3GY3Lk085Om46YitnLGcflLmV-Iw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830254695501:android:e2867cc275db02aed7c804",
+        "android_client_info": {
+          "package_name": "com.logixhunt.carrorentalvendor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6nxT3GY3Lk085Om46YitnLGcflLmV-Iw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830254695501:android:e2867cc275db02aed7c804",
+        "android_client_info": {
+          "package_name": "com.logixhunt.carrorentaldriver"
+
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6nxT3GY3Lk085Om46YitnLGcflLmV-Iw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

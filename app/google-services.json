@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "777138864004",
+    "project_id": "carrorental-customer",
+    "storage_bucket": "carrorental-customer.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777138864004:android:f27f36e484f7a6441467d1",
+        "android_client_info": {
+          "package_name": "com.carro.branch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5EtjH5BywQYUFi3QfuV4YrQqbSaX0L_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777138864004:android:dd69fcc8619de9f51467d1",
+        "android_client_info": {
+          "package_name": "com.carro.chauffeur"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5EtjH5BywQYUFi3QfuV4YrQqbSaX0L_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777138864004:android:60e71d387dce3ab51467d1",
+        "android_client_info": {
+          "package_name": "com.carro.customer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5EtjH5BywQYUFi3QfuV4YrQqbSaX0L_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777138864004:android:efe9c233fa5addb71467d1",
+        "android_client_info": {
+          "package_name": "com.carro.vendor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5EtjH5BywQYUFi3QfuV4YrQqbSaX0L_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

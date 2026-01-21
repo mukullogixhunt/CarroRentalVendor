@@ -1,0 +1,37 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CarroRentalDriver" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="fontFamily">@font/inter_24pt_regular</item>
+    </style>
+
+    <style name="Theme.CarroRentalDriver" parent="Base.Theme.CarroRentalDriver" />
+
+    <style name="Theme.BottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/primary_light2_trans</item>
+    </style>
+
+    <style name="TextAppearance.BottomNavigationView" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">@dimen/_11ssp</item>
+    </style>
+
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="my_dialog" parent="Theme.Material3.Light.Dialog.Alert">
+        <item name="dialogCornerRadius">@dimen/_15sdp</item>
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+    </style>
+
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider_color</item>
+    </style>
+
+</resources>

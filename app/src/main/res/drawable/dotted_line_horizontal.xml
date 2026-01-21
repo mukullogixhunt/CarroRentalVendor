@@ -1,0 +1,11 @@
+<!-- This drawable just defines a DASHED line pattern. It is not vertical by itself. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="line">
+
+    <stroke
+        android:width="@dimen/_2sdp"
+        android:color="@color/black"
+        android:dashWidth="@dimen/_3sdp"
+        android:dashGap="@dimen/_3sdp" />
+
+</shape>

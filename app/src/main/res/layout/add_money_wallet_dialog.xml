@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:backgroundTint="@color/primary_light9"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/topup_amount"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textColor="@color/gray"
+            android:gravity="center"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/et_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_15sdp"
+            android:gravity="center"
+            android:inputType="number"
+            android:paddingVertical="@dimen/_10sdp"
+            android:background="@drawable/otp_inactive_box"
+            android:hint="@string/enter_amount"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recommended"
+            android:paddingStart="@dimen/_15sdp"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            android:id="@+id/rv_recommended"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:visibility="gone"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/notes"
+                android:paddingStart="@dimen/_15sdp"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/optional"
+                android:paddingStart="@dimen/_5sdp"
+                android:textColor="@color/gray_light2"
+                android:textSize="@dimen/_11ssp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/et_note"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_margin="@dimen/_15sdp"
+            android:gravity="start"
+            android:visibility="gone"
+            android:paddingStart="@dimen/_13sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:background="@drawable/otp_inactive_box"
+            android:hint="@string/write_your_notes_here"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_15sdp"
+            app:icon="@drawable/ic_add"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="@string/add_money"
+            android:textStyle="bold"
+            android:paddingStart="@dimen/_90sdp"
+            android:textSize="@dimen/_15ssp"
+            android:gravity="start"
+            app:cornerRadius="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
