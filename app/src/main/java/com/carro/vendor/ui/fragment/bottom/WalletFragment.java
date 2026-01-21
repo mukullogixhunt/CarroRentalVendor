@@ -117,12 +117,6 @@ public class WalletFragment extends BaseFragment implements RecommendedClickList
 
         String userData = PreferenceUtils.getString(Constant.PreferenceConstant.USER_DATA, getContext());
         loginModel = new Gson().fromJson(userData, LoginModel.class);
-
-        Glide.with(getContext())
-                .load(ImagePathDecider.getUserImagePath() + loginModel.getmVendorImg())
-                .error(R.drawable.img_no_profile)
-                .into(binding.ivUser);
-
         initialization();
     }
 
