@@ -133,6 +133,7 @@ public class NotificationModel {
     @SerializedName("m_bking_pay_status")
     @Expose
     private String mBkingPayStatus;
+
     @SerializedName("m_bking_status")
     @Expose
     private String mBkingStatus;
@@ -145,6 +146,18 @@ public class NotificationModel {
     @SerializedName("m_bking_updatedon")
     @Expose
     private String mBkingUpdatedon;
+
+    public String getmNotifStatus() {
+        return mNotifStatus;
+    }
+
+    public void setmNotifStatus(String mNotifStatus) {
+        this.mNotifStatus = mNotifStatus;
+    }
+
+    @SerializedName("m_notif_status")
+    @Expose
+    private String mNotifStatus;
 
     public String getmNotifId() {
         return mNotifId;
@@ -520,5 +533,18 @@ public class NotificationModel {
 
     public void setmBkingUpdatedon(String mBkingUpdatedon) {
         this.mBkingUpdatedon = mBkingUpdatedon;
+    }
+
+    // Local field to track if notification is read
+    private boolean isRead = false; // default false
+
+    // Getter
+    public boolean isRead() {
+        return isRead;
+    }
+
+    // Setter
+    public void setRead(boolean read) {
+        isRead = read;
     }
 }

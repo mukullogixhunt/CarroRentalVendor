@@ -210,12 +210,12 @@ public class HomeFragment extends Fragment {
 
 
 
-                            binding.textView.setText(data.getMHvTagline());
-
-                            Glide.with(getActivity())
-                                    .load(ImagePathDecider.getBannerImagePath() + data.getMHvIcon())
-                                    .error(R.drawable.img_car)
-                                    .into(binding.imageView);
+//                            binding.textView.setText(data.getMHvTagline());
+//
+//                            Glide.with(getActivity())
+//                                    .load(ImagePathDecider.getBannerImagePath() + data.getMHvIcon())
+//                                    .error(R.drawable.img_car)
+//                                    .into(binding.imageView);
 
 
 

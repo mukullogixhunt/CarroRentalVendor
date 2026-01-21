@@ -106,6 +106,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -142,6 +143,23 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         NotificationModel item = items.get(holder.getAdapterPosition());
         holder.binding.tvMsg.setText(item.getmNotifMessage());
+        if (item.getmNotifStatus().equals("Read")) {
+            holder.binding.clNotif.setBackgroundTintList(
+                    ContextCompat.getColorStateList(
+                            holder.itemView.getContext(),
+                            R.color.gray_light4
+                    )
+            );
+        } else {
+            holder.binding.clNotif.setBackgroundTintList(
+                    ContextCompat.getColorStateList(
+                            holder.itemView.getContext(),
+                            R.color.primary_field
+
+                    )
+            );
+        }
+
         holder.binding.tvTime.setText(Utils.formatTimeString(Constant.HHMMSS,Constant.HHMMSSA,item.getmNotifTime()));
         holder.binding.tvDate.setText(DateFormater.changeDateFormat(Constant.yyyyMMdd,Constant.ddMMyyyy,item.getmNotifDate()));
 

@@ -129,9 +129,21 @@ public class UserDetailModel {
     @SerializedName("m_vendor_addedon")
     @Expose
     private String mVendorAddedon;
+
+    public String getmBranchTitle() {
+        return mBranchTitle;
+    }
+
+    public void setmBranchTitle(String mBranchTitle) {
+        this.mBranchTitle = mBranchTitle;
+    }
+
     @SerializedName("m_vendor_updatedon")
     @Expose
     private String mVendorUpdatedon;
+    @SerializedName("m_branch_title")
+    @Expose
+    private String mBranchTitle;
 
     public String getmVendorId() {
         return mVendorId;

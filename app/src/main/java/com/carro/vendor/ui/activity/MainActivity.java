@@ -146,6 +146,7 @@ public class MainActivity extends BaseActivity {
         bottomNavController = navHost.getNavController();
         NavigationUI.setupWithNavController(binding.navBottom, bottomNavController);
 
+        updateFCM();
 
 
     }
@@ -175,7 +176,9 @@ public class MainActivity extends BaseActivity {
                 try {
                     if (String.valueOf(response.code()).equalsIgnoreCase(Constant.SUCCESS_RESPONSE_CODE)) {
                         if (response.body().getResult().equalsIgnoreCase(Constant.SUCCESS_RESPONSE)) {
+
                         } else {
+
                         }
                     } else {
                     }

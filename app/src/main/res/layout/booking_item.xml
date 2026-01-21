@@ -14,10 +14,10 @@
         android:id="@+id/card_details"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_minus12sdp"
         android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_minus12sdp"
         android:layout_marginBottom="@dimen/_8sdp"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardBackgroundColor="@color/primary_dark1"
         app:cardCornerRadius="@dimen/_8sdp"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toTopOf="@id/btn_accept"
@@ -28,65 +28,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="vertical"
             android:padding="@dimen/_10sdp">
 
-        <!-- Row 1: Trip Type and Date -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tv_trip_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ONE WAY TRIP"
-                android:textColor="@color/primary"
-                android:textSize="@dimen/_12ssp"
-                android:textStyle="bold" />
-
-            <!-- Spacer to push the date to the right -->
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/tv_pickup_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mar 16, 2025 08:00 am"
-                android:textColor="@color/gray_text"
-                android:textSize="@dimen/_10ssp" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_2sdp"
-            android:layout_marginTop="@dimen/_6sdp"
-            android:background="@color/primary_field" />
-
-        <!-- Row 2: Location Details -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_6sdp"
-            android:orientation="horizontal">
-
-
-            <!-- Location Text column -->
+            <!-- Row 2: Location Details -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-
-
-
-
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -94,7 +45,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
@@ -102,8 +53,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
-                            android:orientation="vertical"
-                            android:paddingStart="@dimen/_6sdp">
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/iv_first_dn"
@@ -126,106 +76,158 @@
 
                         </LinearLayout>
 
-
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:layout_marginBottom="@dimen/_3sdp"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/iv_start_icon"
-                                android:layout_width="@dimen/_18sdp"
-                                android:layout_height="@dimen/_18sdp"
-                                android:layout_marginEnd="@dimen/_4sdp"
-                                android:src="@drawable/ic_pickup_location" />
-
-
+                            android:orientation="vertical"
+                            android:paddingStart="@dimen/_5sdp">
                             <TextView
                                 android:id="@+id/tv_from_location"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
-                                android:layout_marginStart="@dimen/_4sdp"
-                                android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:gravity="center_vertical"
-                                android:maxLines="2"
-                                android:textColor="@android:color/black"
-                                android:textSize="@dimen/_12ssp"
-                                tools:text="Jharsuguda, Odisha,\nIndia" />
-
-
-                        </LinearLayout>
-
-
-                        <View
-                            android:id="@+id/view_dots"
-                            android:layout_width="@dimen/_10sdp"
-                            android:layout_height="@dimen/_24sdp"
-                            android:layout_marginStart="@dimen/_3sdp"
-                            android:background="@drawable/dotted_line_vertical" />
-
-
-                        <LinearLayout
-                            android:id="@+id/llDrop"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_3sdp"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/iv_end_icon"
-                                android:layout_width="@dimen/_18sdp"
-                                android:layout_height="@dimen/_18sdp"
                                 android:layout_gravity="center"
-                                android:layout_marginEnd="@dimen/_4sdp"
-                                android:src="@drawable/ic_img_drop" />
-
-
+                                android:text="12 September, 2024, 14:30 PM"
+                                android:textColor="@color/secondary_light3"
+                                android:textSize="@dimen/_10ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent" />
                             <TextView
                                 android:id="@+id/tv_from_date"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="12 September, 2024, 14:30 PM"
+                                android:textColor="@color/secondary_light3"
+                                android:textSize="@dimen/_8ssp"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/tv_To_location"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:text="12 September, 2024, 14:30 PM"
                                 android:textColor="@color/secondary_light3"
                                 android:textSize="@dimen/_10ssp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/tv_from_location" />
-
-
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent" />
                             <TextView
-                                android:id="@+id/tv_to_location"
-                                android:layout_width="match_parent"
+                                android:id="@+id/tv_drop_date"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
-                                android:layout_marginStart="@dimen/_4sdp"
-                                android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:gravity="center_vertical"
-                                android:maxLines="2"
-                                android:textColor="@android:color/black"
-                                android:textSize="@dimen/_12ssp"
-                                tools:text="Bilaspur, Chhattisgarh, \nIndia" />
-
+                                android:layout_gravity="center"
+                                android:text="12 September, 2024, 14:30 PM"
+                                android:textColor="@color/secondary_light3"
+                                android:textSize="@dimen/_8ssp"
+                                app:layout_constraintStart_toStartOf="parent" />
                         </LinearLayout>
 
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
 
+                        <ImageView
+                            android:id="@+id/ivCarImage"
+                            android:layout_width="@dimen/_110sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:src="@drawable/car" />
                     </LinearLayout>
+
                 </LinearLayout>
 
-                <!-- Row 3: Divider -->
-                <View
-                    android:id="@+id/divider1"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_2sdp"
-                    android:layout_marginTop="@dimen/_6sdp"
-                    android:background="@color/primary_field" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <!-- Row 4: Info Grid -->
+                    <TextView
+                        android:id="@+id/tv_pickup_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Pickup : Plot 9, near Dwarika restaurant, Bhilai"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_10ssp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/info_grid2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_trip_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="one way trip"
+                        android:textAllCaps="true"
+                        android:ellipsize="end"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9ssp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/tvDriverCharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Included\n(driver charge)"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9ssp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@color/gray_dark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_toll_parking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Toll &amp; State Tax Extra"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_parking_extra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Parking Extra, if applicable"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/info_grid"
                     android:layout_width="match_parent"
@@ -244,303 +246,80 @@
 
                         <ImageView
                             android:id="@+id/car_type_icon"
-                            android:layout_width="@dimen/_30sdp"
-                            android:layout_height="@dimen/_30sdp"
-                            android:src="@drawable/ic_img_car" />
+                            android:layout_width="@dimen/_24sdp"
+                            android:layout_height="@dimen/_24sdp"
+                            android:src="@drawable/icon_car"
+                            android:tint="@color/white"/>
 
                         <TextView
                             android:id="@+id/tv_car_type"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-
                             android:layout_marginTop="@dimen/_4sdp"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_11ssp"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_8ssp"
                             android:textStyle="bold"
                             tools:text="SEDAN (AC)" />
-
-                        <!--                    <TextView
-                                                android:id="@+id/tv_extra_km_charge"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:gravity="center"
-                                                android:text="Rs 11.4/km\n(for extra km)"
-                                                android:textColor="@color/gray_text"
-                                                android:textSize="@dimen/_9ssp" />-->
                     </LinearLayout>
-
-                    <View
-                        android:layout_width="@dimen/_2sdp"
-                        android:layout_height="match_parent"
-                        android:background="@color/primary_field" />
-
-                    <!-- Column 2: Price -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="1.2"
                         android:gravity="center"
                         android:orientation="vertical">
 
+                        <ImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:src="@drawable/ic_img_rupee" />
+
                         <TextView
-                            android:layout_width="match_parent"
+                            android:id="@+id/tv_amount"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:text="Raipur, Chattisgarh"
-                            android:textStyle="bold"
-                            android:maxLines="2"
-                            android:ellipsize="end"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:gravity="center"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_11ssp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tv_from_date" />
+                            android:textStyle="bold"
+                            tools:text="Rs 2650.0" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            tools:text="Pay by cash" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_24sdp"
+                            android:layout_height="@dimen/_24sdp"
+                            android:src="@drawable/ic_calender" />
 
                         <TextView
-                            android:id="@+id/tv_to_date"
-                            android:layout_width="match_parent"
+                            android:id="@+id/tv_booking_date"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="12 September, 2024, 16:30 PM"
-                            android:textColor="@color/secondary_light3"
-                            android:textSize="@dimen/_10ssp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tv_to_location" />
-
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_8ssp"
+                            android:textStyle="bold"
+                            tools:text="SEDAN (AC)" />
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/ivCarImage"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_width="@dimen/_110sdp"
-                        android:layout_height="@dimen/_80sdp"
-                        android:src="@drawable/car" />
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tv_pickup_details"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/_9sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Pickup : Plot 9, near Dwarika restaurant, Bhilai"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10ssp" />
-
-                <LinearLayout
-                    android:id="@+id/lv_one_way_trip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_pickup_details">
-
-
-
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-
-
-                        android:src="@drawable/ic_img_rupee" />
-
-                    <TextView
-                        android:id="@+id/tv_amount"
-                        android:layout_width="wrap_content"
-                        android:gravity="center"
-
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_4sdp"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp"
-                        android:textStyle="bold"
-                        tools:text="Rs 2650.0" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="@dimen/_2sdp"
-                    android:layout_height="match_parent"
-                    android:background="@color/primary_field" />
-
-                <!-- Column 3: Distance -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.2"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:src="@drawable/ic_img_distance" />
-
-                    <TextView
-                        android:id="@+id/tv_distance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-
-                        android:layout_marginTop="@dimen/_4sdp"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11ssp"
-                        android:textStyle="bold"
-                        tools:text="235.0 KM" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Row 5: Divider -->
-            <View
-                android:id="@+id/divider2"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:background="@color/primary_field" />
-
-            <!-- Row 4: Info Grid -->
-            <LinearLayout
-                android:id="@+id/info_grid2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
-
-                <!-- Column 1: Car Type -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.2"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:id="@+id/tv_extra_km_charge"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Rs 10/km\n(for extra km)"
-                        android:textStyle="bold"
-                        android:textColor="@color/gray_text"
-                        android:textSize="@dimen/_9ssp" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="@dimen/_2sdp"
-                    android:layout_height="match_parent"
-                    android:background="@color/primary_field" />
-
-
-                <!-- Column 3: Distance -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.2"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:id="@+id/tvDriverCharge"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Included\n(driver charge)"
-                        android:textStyle="bold"
-                        android:textColor="@color/gray_text"
-                        android:textSize="@dimen/_9ssp" />
-                </LinearLayout>
-            </LinearLayout>
-
-
-            <!-- Row 5: Divider -->
-            <View
-                android:id="@+id/divider3"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:background="@color/primary_field" />
-
-            <!-- Row 6: Toll & Parking Info -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tv_toll_parking"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Toll &amp; State Tax Extra"
-                    android:textStyle="bold"
-                    android:textColor="@color/gray_text"
-                    android:textSize="@dimen/_10ssp" />
-
-                <TextView
-                    android:id="@+id/tv_parking_extra"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Parking Extra, if applicable"
-                    android:textStyle="bold"
-                    android:textColor="@color/gray_text"
-                    android:textSize="@dimen/_10ssp" />
-
-            </LinearLayout>
-
-
-            <View
-                android:id="@+id/divider4"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:background="@color/primary_field" />
-
-            <!-- Row 7: Departure -->
-            <LinearLayout
-                android:id="@+id/llDropDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="@dimen/_12sdp"
-                    android:layout_height="@dimen/_12sdp"
-                    android:src="@drawable/ic_calender"
-                    app:tint="@color/gray_text" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_4sdp"
-                    android:text="Drop date:"
-                    android:textColor="@color/gray_text"
-                    android:textSize="@dimen/_11ssp" />
-
-
-                <!-- Spacer to push the date to the right -->
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/tv_drop_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mar 16, 2025 08:00 am"
-                    android:textColor="@color/gray_text"
-                    android:textSize="@dimen/_10ssp" />
 
 
             </LinearLayout>
-
-        </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -549,27 +328,34 @@
         android:id="@+id/btn_status"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_30sdp"
-        android:backgroundTint="@color/secondary_dark"
-        android:text="In Progress"
-        android:gravity="center"
-        android:elevation="@dimen/_10sdp"
-
-        android:textColor="@color/white"
-        android:textSize="@dimen/_10ssp"
         android:layout_marginTop="@dimen/_4sdp"
         android:layout_marginEnd="@dimen/_10sdp"
+        android:backgroundTint="@color/secondary_dark"
+        android:elevation="@dimen/_10sdp"
+        android:gravity="center"
+        android:text="In Progress"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
         android:textStyle="bold"
         app:cornerRadius="@dimen/_7sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginVertical="@dimen/_8sdp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/card_details" >
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_accept"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_weight="1"
         android:backgroundTint="@color/green"
         android:paddingVertical="@dimen/_10sdp"
         android:text="ACCEPT"
@@ -577,441 +363,23 @@
         android:textSize="@dimen/_14ssp"
         android:textStyle="bold"
         app:cornerRadius="@dimen/_8sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_details" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <!--
-    <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_5sdp"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_minus12sdp"
-            app:layout_constraintTop_toBottomOf="@+id/btn_status"
-            app:layout_constraintStart_toStartOf="parent">
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:backgroundTint="@color/primary"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:orientation="vertical"
-                            android:paddingStart="@dimen/_6sdp">
-
-                            <ImageView
-                                android:id="@+id/iv_first_dn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/icn_circle" />
-
-                            <ImageView
-                                android:id="@+id/ivView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/_40sdp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ic_view" />
-
-                            <ImageView
-                                android:id="@+id/iv_last_dn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/icn_circle" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:paddingStart="@dimen/_6sdp">
-
-                            <TextView
-                                android:id="@+id/tv_from_location"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Smriti Nagar, Bhilai"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/_11ssp"
-                                android:textStyle="bold"
-                                android:layout_marginTop="@dimen/_4sdp"
-                                android:maxLines="2"
-                                android:ellipsize="end"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/tv_from_date"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="12 September, 2024, 14:30 PM"
-                                android:textColor="@color/secondary_light3"
-                                android:textSize="@dimen/_10ssp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/tv_from_location" />
-
-                            <TextView
-                                android:id="@+id/tv_to_location"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:text="Raipur, Chattisgarh"
-                                android:textStyle="bold"
-                                android:maxLines="2"
-                                android:ellipsize="end"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/_11ssp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/tv_from_date" />
-
-                            <TextView
-                                android:id="@+id/tv_to_date"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="12 September, 2024, 16:30 PM"
-                                android:textColor="@color/secondary_light3"
-                                android:textSize="@dimen/_10ssp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/tv_to_location" />
-
-                        </LinearLayout>
-
-                        <ImageView
-                            android:id="@+id/ivCarImage"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_width="@dimen/_110sdp"
-                            android:layout_height="@dimen/_80sdp"
-                            android:src="@drawable/car" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tv_pickup_details"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="@dimen/_9sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:text="Pickup : Plot 9, near Dwarika restaurant, Bhilai"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <LinearLayout
-                        android:id="@+id/lv_one_way_trip"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_pickup_details">
-
-
-                        <ImageView
-                            android:layout_width="@dimen/_30sdp"
-                            android:layout_height="@dimen/_30sdp"
-                            app:tint="@color/white"
-                            android:layout_marginStart="@dimen/_10sdp"
-                           android:src="@drawable/icn_one_way"
-                            android:id="@+id/ivTripType"/>
-
-                        <TextView
-                            android:id="@+id/tv_trip_type"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:paddingStart="@dimen/_9sdp"
-                            android:text="One Way Trip"
-                            android:textColor="@android:color/white"
-                            android:textSize="@dimen/_9ssp" />
-
-                        <TextView
-                            android:id="@+id/tvDriverCharge"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="end"
-                            android:paddingEnd="@dimen/_9sdp"
-                            android:text="Included \n (Driver Charge)"
-                            android:textColor="@android:color/white"
-                            android:textSize="@dimen/_9ssp"
-                            app:layout_constraintTop_toBottomOf="@id/tv_pickup_details" />
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginHorizontal="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_7sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@color/gray_text2" />
-
-                    <TextView
-                        android:id="@+id/tv_toll_parking"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/toll_state_tax_extra_nparking_extra_if_applicable"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/_11ssp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="@dimen/_5sdp"
-                        android:orientation="horizontal">
-
-                        &lt;!&ndash; Car Type Icon and Text &ndash;&gt;
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/car_type_icon"
-                                android:layout_width="@dimen/_20sdp"
-                                android:layout_height="@dimen/_20sdp"
-                                app:tint="@color/white"
-                                android:src="@drawable/icon_car" />
-
-                            <TextView
-                                android:id="@+id/tv_car_type"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Sedan (AC)"
-                                android:paddingStart="@dimen/_1sdp"
-                                android:textColor="@android:color/white"
-                                android:textSize="@dimen/_12ssp" />
-                        </LinearLayout>
-
-                        &lt;!&ndash; Fare Info &ndash;&gt;
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/trip_time_icon"
-                                android:layout_width="@dimen/_22sdp"
-                                android:layout_height="@dimen/_22sdp"
-                                android:src="@drawable/ic_money" />
-
-                            <TextView
-                                android:id="@+id/tv_amount"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="₹ 1400/-"
-                                android:textColor="@android:color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_payment_mode"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Paid By Cash"
-                                android:textColor="@android:color/white"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        &lt;!&ndash; Trip Date and Time &ndash;&gt;
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="@dimen/_16sdp"
-                                android:layout_height="@dimen/_16sdp"
-                                android:src="@drawable/ic_calender" />
-
-                            <TextView
-                                android:id="@+id/tv_trip_time"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="@dimen/_5sdp"
-                                android:gravity="center"
-                                android:text="12 September, 2024, 13:45 PM"
-                                android:textColor="@android:color/white"
-                                android:textSize="@dimen/_11ssp" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_status"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_30sdp"
-            android:backgroundTint="@color/secondary_dark"
-            android:text="In Progress"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_10ssp"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:textStyle="bold"
-            app:cornerRadius="@dimen/_7sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-
-        <LinearLayout
-            android:id="@+id/ll_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@+id/cl"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:orientation="horizontal">
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_accept"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_marginVertical="@dimen/_3sdp"
-                android:backgroundTint="@color/secondary_dark1"
-                android:paddingVertical="@dimen/_5sdp"
-                android:text="@string/accept"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_13ssp"
-                android:textStyle="bold"
-                app:cornerRadius="@dimen/_10sdp" />
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_cancel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:visibility="gone"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_marginVertical="@dimen/_3sdp"
-                android:backgroundTint="@color/red"
-                android:paddingVertical="@dimen/_5sdp"
-                android:text="@string/cancel"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_13ssp"
-                android:textStyle="bold"
-                app:cornerRadius="@dimen/_10sdp" />
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_complete"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginVertical="@dimen/_3sdp"
-                android:backgroundTint="@color/green"
-                android:paddingVertical="@dimen/_5sdp"
-                android:text="@string/complete"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_13ssp"
-                android:textStyle="bold"
-                app:cornerRadius="@dimen/_10sdp" />
-        </LinearLayout>
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-<!--
-<LinearLayout
-android:id="@+id/llButtons"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_marginHorizontal="@dimen/_10sdp"
-app:layout_constraintTop_toBottomOf="@+id/cl"
-app:layout_constraintBottom_toBottomOf="parent"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-android:orientation="horizontal">
-<com.google.android.material.button.MaterialButton
-    android:id="@+id/btn_accept"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:layout_marginEnd="@dimen/_5sdp"
-    android:layout_marginVertical="@dimen/_3sdp"
-    android:backgroundTint="@color/secondary_dark1"
-    android:paddingVertical="@dimen/_5sdp"
-    android:text="@string/accept"
-    android:textColor="@color/white"
-    android:textSize="@dimen/_13ssp"
-    android:textStyle="bold"
-    app:cornerRadius="@dimen/_10sdp" />
-
-<com.google.android.material.button.MaterialButton
-    android:id="@+id/btn_cancel"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:layout_marginEnd="@dimen/_5sdp"
-    android:layout_marginVertical="@dimen/_3sdp"
-    android:backgroundTint="@color/red"
-    android:paddingVertical="@dimen/_5sdp"
-    android:text="@string/cancel"
-    android:textColor="@color/white"
-    android:textSize="@dimen/_13ssp"
-    android:textStyle="bold"
-    app:cornerRadius="@dimen/_10sdp" />
-
-<com.google.android.material.button.MaterialButton
-    android:id="@+id/btn_complete"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:layout_marginVertical="@dimen/_3sdp"
-    android:backgroundTint="@color/green"
-    android:paddingVertical="@dimen/_5sdp"
-    android:text="@string/complete"
-    android:textColor="@color/white"
-    android:textSize="@dimen/_13ssp"
-    android:textStyle="bold"
-    app:cornerRadius="@dimen/_10sdp" />
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:backgroundTint="@color/red"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="CANCEL"
+        android:layout_weight="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        app:cornerRadius="@dimen/_8sdp"
+        />
 </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

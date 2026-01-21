@@ -12,7 +12,21 @@
 
     <include layout="@layout/layout_toolbar"
         android:id="@+id/toolbar"/>
-
+    <TextView
+        android:id="@+id/tvMarksRead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12sdp"
+        android:layout_gravity="end"
+        android:gravity="end"
+        android:layout_margin="@dimen/_5sdp"
+        android:textStyle="bold"
+        android:text="Mark As Read "
+        android:textColor="@color/gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintBaseline_toBottomOf="@id/toolbar"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_notification"
         android:layout_width="match_parent"
@@ -20,7 +34,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/tvMarksRead" />
 
     <LinearLayout
         android:id="@+id/lvNoData"

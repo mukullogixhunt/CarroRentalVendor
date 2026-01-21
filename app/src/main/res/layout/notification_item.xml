@@ -32,15 +32,18 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/_8sdp"
         app:strokeWidth="0dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/primary_field"
         app:layout_constraintTop_toBottomOf="@+id/tvDate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clNotif"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            >
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/ivNotification"
