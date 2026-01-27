@@ -145,9 +145,10 @@ public class WalletFragment extends BaseFragment implements RecommendedClickList
             @Override
             public void onClick(View v) {
                 int walletAmt=Integer.parseInt(binding.tvAmount.getText().toString().replace("Rs. ",""));
+                double enteredAmt=Double.parseDouble(addMoneyWalletDialogBinding.etAmount.getText().toString().trim());
                 if (addMoneyWalletDialogBinding.etAmount.getText().toString().isEmpty()) {
                     showAlert("Please enter amount");
-                }else if(walletAmt==0){
+                }else if(walletAmt==0 && enteredAmt<500){
                     showAlert("Minimum ₹500 required for first-time wallet top-up");
                 }else {
                     dialog.cancel();
