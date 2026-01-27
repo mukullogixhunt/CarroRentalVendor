@@ -7,6 +7,7 @@ import com.carro.vendor.api.response.CarListResponse;
 import com.carro.vendor.api.response.CarNameResponse;
 import com.carro.vendor.api.response.CarTypeResponse;
 import com.carro.vendor.api.response.CityResponse;
+import com.carro.vendor.api.response.CreateOrderResponse;
 import com.carro.vendor.api.response.DriverListResponse;
 import com.carro.vendor.api.response.DriverOtpResponse;
 import com.carro.vendor.api.response.LoginResponse;
@@ -463,5 +464,11 @@ public interface ApiInterface {
             @Field(Constant.ApiKey.CAR_NUMBER) String car_number,
             @Field(Constant.ApiKey.CAR_FUEL) String car_fuel
 
+    );
+
+    @FormUrlEncoded
+    @POST(Constant.EndPoint.CREATE_ORDER_TEST) // <-- IMPORTANT: USE YOUR ACTUAL SERVER URL
+    Call<CreateOrderResponse> createRazorpayOrderTest(
+            @Field("payable_amount") String amount
     );
 }

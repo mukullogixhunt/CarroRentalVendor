@@ -14,6 +14,7 @@ googleGmsGoogleServices = "4.4.2"
 googleFirebaseCrashlytics = "3.0.2"
 appUpdate = "2.1.0"
 firebaseMessaging = "24.1.1"
+razorpay = "1.6.41"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -28,6 +29,7 @@ navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
 app-update = { group = "com.google.android.play", name = "app-update", version.ref = "appUpdate" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
+razorpay = { group = "com.razorpay", name = "checkout", version.ref = "razorpay" }
 
 
 [plugins]

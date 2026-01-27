@@ -178,5 +178,6 @@ public class Constant {
         String UPDATE_ADHAR = "update_adhar";
 
         String DRIVING_LICENSE  = "driving-license/driving-license";
+        String CREATE_ORDER_TEST  = "create_order_test";
     }
 }

@@ -2,16 +2,18 @@ package com.carro.vendor.ui.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.carro.vendor.api.RazorPayApiClient;
+import com.carro.vendor.api.response.CreateOrderResponse;
 import com.google.gson.Gson;
 import com.carro.vendor.R;
 import com.carro.vendor.api.ApiClient;
@@ -23,10 +25,7 @@ import com.carro.vendor.ui.common.BaseActivity;
 import com.carro.vendor.utils.Constant;
 import com.carro.vendor.utils.PreferenceUtils;
 import com.razorpay.Checkout;
-import com.razorpay.Order;
 import com.razorpay.PaymentResultListener;
-import com.razorpay.RazorpayClient;
-import com.razorpay.RazorpayException;
 
 import org.json.JSONObject;
 
@@ -62,10 +61,37 @@ public class AddWalletAmountActivity extends BaseActivity implements PaymentResu
         }else{
             amount=getIntent().getStringExtra(Constant.BundleExtras.WALLET_AMOUNT);
         }
-        double rupeeToPaisa = Integer.parseInt(amount) * 100;
-        AsyncCaller asyncCaller = new AsyncCaller(rupeeToPaisa);// Money is being added in Paisa....
-        asyncCaller.execute();
+        ProgressDialog pdLoading = new ProgressDialog(AddWalletAmountActivity.this);
+        pdLoading.setMessage("\tLoading...");
+        pdLoading.show();
+        RazorPayApiClient.getRazorpayClient().create(ApiInterface.class)
+                .createRazorpayOrderTest(String.valueOf(amount))
+                .enqueue(new Callback<CreateOrderResponse>() {
+                    @Override
+                    public void onResponse(@NonNull Call<CreateOrderResponse> call, @NonNull Response<CreateOrderResponse> response) {
+                        pdLoading.dismiss();
+                        if (response.isSuccessful() && response.body() != null && "success".equalsIgnoreCase(response.body().getResponseStatus())) {
+                            String razorpayOrderId = response.body().getOrderId();
+                            if (razorpayOrderId != null && !razorpayOrderId.isEmpty()) {
+                                double rupeeToPaisa = Integer.parseInt(amount) * 100;
+                                startPayment(rupeeToPaisa, razorpayOrderId);
+                            } else {
+                                showError("Server did not provide an Order ID.");
+                            }
+                        } else {
+                            showError("Payment initialization failed on server.");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<CreateOrderResponse> call, @NonNull Throwable t) {
+                        pdLoading.dismiss();
+                        Log.e("ConfirmBookingActivity", "createRazorpayOrder API call failed", t);
+                        showError("An error occurred. Please check your connection.");
+                    }
+                });
     }
+
 
     private void insertWalletApi(String amount) {
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
@@ -98,63 +124,6 @@ public class AddWalletAmountActivity extends BaseActivity implements PaymentResu
 
             }
         });
-    }
-
-    //todo : Razorpay
-
-    class AsyncCaller extends AsyncTask<Void, Void, Void> {
-        double payAmount;
-
-        AsyncCaller(double payAmount) {
-            this.payAmount = payAmount;
-        }
-
-        ProgressDialog pdLoading = new ProgressDialog(AddWalletAmountActivity.this);
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-            //this method will be running on UI thread
-            pdLoading.setMessage("\tLoading...");
-            pdLoading.show();
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            //this method will be running on background thread so don't update UI frome here
-            //do your long running http tasks here,you dont want to pass argument and u can access the parent class' variable url over here
-            try {
-                RazorpayClient razorpay = new RazorpayClient(getString(R.string.razor_pay_key), getString(R.string.razor_pay_secret));
-                try {
-                    JSONObject orderRequest = new JSONObject();
-                    orderRequest.put("amount", payAmount); // amount in the smallest currency unit
-                    orderRequest.put("currency", "INR");
-                    orderRequest.put("receipt", "order_rcptid_11");
-                    orderRequest.put("payment_capture", true);
-
-                    Order order = razorpay.Orders.create(orderRequest);
-                    Log.e("Order Id ", "" + order.get("id"));
-                    startPayment(payAmount, "" + order.get("id"));
-                } catch (RazorpayException e) {
-                    // Handle Exception
-                    System.out.println(e.getMessage());
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-            //this method will be running on UI thread
-            pdLoading.dismiss();
-        }
-
     }
 
     private void startPayment(double netPrice, String razorPayOrderId) {
