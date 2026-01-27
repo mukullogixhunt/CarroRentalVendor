@@ -20,7 +20,6 @@
         app:cardBackgroundColor="@color/primary_dark1"
         app:cardCornerRadius="@dimen/_8sdp"
         app:cardElevation="0dp"
-        app:layout_constraintBottom_toTopOf="@id/btn_accept"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_status">

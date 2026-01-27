@@ -1,15 +1,15 @@
 package com.carro.vendor.firebase;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 
-import androidx.legacy.content.WakefulBroadcastReceiver;
 
 
-public class NotificationReceiver extends WakefulBroadcastReceiver {
+public class NotificationReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
        /* playNotificationSound(context);*/
