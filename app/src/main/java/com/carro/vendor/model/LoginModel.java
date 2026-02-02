@@ -132,6 +132,18 @@ public class LoginModel {
     @Expose
     private String mVendorUpdatedon;
 
+    public String getmVendorIsOnline() {
+        return mVendorIsOnline;
+    }
+
+    public void setmVendorIsOnline(String mVendorIsOnline) {
+        this.mVendorIsOnline = mVendorIsOnline;
+    }
+
+    @SerializedName("m_vendor_isonline")
+    @Expose
+    private String mVendorIsOnline;
+
     public String getmVendorId() {
         return mVendorId;
     }

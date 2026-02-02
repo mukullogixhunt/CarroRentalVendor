@@ -9,9 +9,21 @@ public class UserDetailModel {
     @SerializedName("m_vendor_id")
     @Expose
     private String mVendorId;
+    @SerializedName("m_vendor_isonline")
+    @Expose
+    private String mVendorIsOnline;
     @SerializedName("m_vendor_name")
     @Expose
     private String mVendorName;
+
+    public String getmVendorIsOnline() {
+        return mVendorIsOnline;
+    }
+
+    public void setmVendorIsOnline(String mVendorIsOnline) {
+        this.mVendorIsOnline = mVendorIsOnline;
+    }
+
     @SerializedName("m_vendor_mobile")
     @Expose
     private String mVendorMobile;

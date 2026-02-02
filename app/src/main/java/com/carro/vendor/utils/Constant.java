@@ -115,7 +115,9 @@ public class Constant {
         String USER_BUSINESS_LIC_FRONT = "b_lic_img_front";
         String USER_BUSINESS_LIC_BACK = "b_lic_img_back";
         String FCM_TOKEN = "fcmtoken";
-
+        String ONLINE_OFFLINE_STATUS = "online_status";
+        String LOC_LAT = "m_vendor_cur_loc_latt";
+        String LOC_LNG = "m_vendor_cur_loc_long";
     }
 
     public interface EndPoint {
@@ -179,5 +181,7 @@ public class Constant {
 
         String DRIVING_LICENSE  = "driving-license/driving-license";
         String CREATE_ORDER_TEST  = "create_order_test";
+        String UPDATE_ONLINE_OFFLINE_STATUS = "update_online_status";
+        String UPDATE_CURRENT_LOC = "update_cur_location";
     }
 }

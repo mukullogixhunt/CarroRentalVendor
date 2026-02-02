@@ -370,7 +370,19 @@ public interface ApiInterface {
     @POST(Constant.EndPoint.SLIDER)
     Call<SliderResponse> get_slider();
 
-
+    @FormUrlEncoded
+    @POST(Constant.EndPoint.UPDATE_ONLINE_OFFLINE_STATUS)
+    Call<BaseResponse> onlineOffline(
+            @Field(Constant.ApiKey.USER_ID) String user_id,
+            @Field(Constant.ApiKey.ONLINE_OFFLINE_STATUS) String status
+    );
+    @FormUrlEncoded
+    @POST(Constant.EndPoint.UPDATE_CURRENT_LOC)
+    Call<BaseResponse> updateCurrentLocation(
+            @Field(Constant.ApiKey.USER_ID) String user_id,
+            @Field(Constant.ApiKey.LOC_LAT) String lat,
+            @Field(Constant.ApiKey.LOC_LNG) String lng
+    );
     @Multipart
     @POST(Constant.EndPoint.UPDATE_CAR_DOCUMENTS)
     Call<BaseResponse> uploadCarDocuments(

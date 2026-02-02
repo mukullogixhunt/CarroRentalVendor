@@ -20,9 +20,10 @@
             <!-- Advertisement Image -->
             <ImageView
                 android:id="@+id/imgAdvertise"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
                 android:minHeight="@dimen/_200sdp"
                 android:layout_gravity="center"/>
 

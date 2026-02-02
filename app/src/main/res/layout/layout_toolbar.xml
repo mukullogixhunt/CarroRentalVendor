@@ -38,10 +38,22 @@
         android:id="@+id/iv_user"
         android:layout_width="@dimen/_25sdp"
         android:layout_height="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
 
         android:src="@drawable/img_no_profile" />
-
+    <com.github.angads25.toggle.widget.LabeledSwitch
+        android:id="@+id/status_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="14sp"
+        app:colorBorder="@color/primary"
+        app:colorOn="@color/primary"
+        app:textOn="@string/online"
+        app:textOff="@string/offline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_nofification"
+        app:layout_constraintTop_toTopOf="parent"
+        app:on="false" />
     <ImageView
         android:id="@+id/iv_nofification"
         android:layout_width="@dimen/_25sdp"

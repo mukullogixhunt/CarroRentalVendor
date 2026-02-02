@@ -97,4 +97,7 @@ dependencies {
 
     //snackbar
     implementation 'com.github.matecode:Snacky:1.1.6'
+
+    implementation 'com.github.angads25:toggle:1.1.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
 }

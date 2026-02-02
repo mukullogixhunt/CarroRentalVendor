@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -30,6 +31,12 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
+import com.carro.vendor.api.response.LoginResponse;
+import com.carro.vendor.api.response.UserDetailResponse;
+import com.carro.vendor.model.UserDetailModel;
+import com.carro.vendor.service.LocationService;
+import com.github.angads25.toggle.interfaces.OnToggledListener;
+import com.github.angads25.toggle.model.ToggleableView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
 
@@ -86,7 +93,30 @@ public class MainActivity extends BaseActivity {
 
 
         getUserPreferences();
+        binding.toolbar.statusToggle.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(ToggleableView toggleableView, boolean isOn) {
 
+                if (isOn) {
+                    boolean hasLocation = checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) == android.content.pm.PackageManager.PERMISSION_GRANTED;
+                    boolean hasNotif = true;
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                        hasNotif = checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) == android.content.pm.PackageManager.PERMISSION_GRANTED;
+                    }
+                    if (!hasLocation || !hasNotif) {
+                        requestPermissions(new String[]{
+                                android.Manifest.permission.ACCESS_FINE_LOCATION,
+                                android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                                android.Manifest.permission.POST_NOTIFICATIONS
+                        }, 100);
+                        return;
+                    }
+                    setStatusOnline();
+                } else {
+                    setStatusOffline();
+                }
+            }
+        });
     }
 
 
@@ -112,12 +142,41 @@ public class MainActivity extends BaseActivity {
 
         String userData = PreferenceUtils.getString(Constant.PreferenceConstant.USER_DATA, MainActivity.this);
         loginModel = new Gson().fromJson(userData, LoginModel.class);
-
+        userDetailsApi();
         checkUserData();
         initialization();
 
     }
+    private void userDetailsApi() {
+        String userData = PreferenceUtils.getString(Constant.PreferenceConstant.USER_DATA, MainActivity.this);
+        LoginModel uData = new Gson().fromJson(userData, LoginModel.class);
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Call<UserDetailResponse> call = apiInterface.user_details(uData.getmVendorId());
+        call.enqueue(new Callback<UserDetailResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<UserDetailResponse> call, @NonNull Response<UserDetailResponse> response) {
+                try {
+                    if (response.isSuccessful() && response.body() != null && response.body().getResult().equalsIgnoreCase(Constant.SUCCESS_RESPONSE)) {
+                        boolean isOnline = response.body().getData().get(0).getmVendorIsOnline().equals("1");
+                        if (isOnline) {
+                            binding.toolbar.statusToggle.setOn(true);
+                            setStatusOnline();
+                        }
 
+                    } else {
+                        showError(response.message());
+                    }
+                } catch (Exception e) {
+                    showError("An error occurred.");
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<UserDetailResponse> call, @NonNull Throwable t) {
+                showError("Something went wrong");
+            }
+        });
+    }
     private void checkUserData() {
         setUpToolBar(binding.toolbar, this, loginModel.getmVendorImg());
 
@@ -301,5 +360,45 @@ public class MainActivity extends BaseActivity {
 
 
         dialog.show();
+    }
+
+    private void setStatusOnline() {
+        Intent serviceIntent = new Intent(getApplicationContext(), LocationService.class);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            startForegroundService(serviceIntent);
+        } else {
+            startService(serviceIntent);
+        }
+        new Thread(() -> {
+            ApiClient.getClient().create(ApiInterface.class).onlineOffline(loginModel.getmVendorId(), "1").enqueue(new Callback<BaseResponse>() {
+                @Override
+                public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
+
+                }
+
+                @Override
+                public void onFailure(Call<BaseResponse> call, Throwable t) {
+
+                }
+            });
+        }).start();
+    }
+
+    private void setStatusOffline(){
+        Intent serviceIntent = new Intent(getApplicationContext(), LocationService.class);
+        stopService(serviceIntent);
+        new Thread(() -> {
+            ApiClient.getClient().create(ApiInterface.class).onlineOffline(loginModel.getmVendorId(), "0").enqueue(new Callback<BaseResponse>() {
+                @Override
+                public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
+
+                }
+
+                @Override
+                public void onFailure(Call<BaseResponse> call, Throwable t) {
+
+                }
+            });
+        }).start();
     }
 }

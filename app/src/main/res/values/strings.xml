@@ -189,5 +189,7 @@
     <string name="dl_number">DL Number</string>
     <string name="driving_licence_number">Driving Licence Number</string>
     <string name="date_of_birth">Date of birth</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
 
 </resources>
